@@ -7,6 +7,7 @@ This is just a proof of concept. Basically I wanted to create a type-generic wra
 ## How does it work?
 
 In the `storage.c` file, I've typed-out the the type-agnostic logic. It is just allocating memory and moving bytes around, nothing fancy, completely unaware of the meaning and type of the data.
+
 Then, in `storage.h` file, you can find a type-generic wrappers around the type-agnostic functions from `storage.c`. Thanks to C preprocessor being just a "dumb" program copypasting around code with some parameters, when you provide an actual data type to the `define_storage_of_type` macro, it instantiates a full type-specific API for the internal logic. No more manual type-casting and uncomfortable pointer-passing!
 
 ## How to build?
