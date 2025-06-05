@@ -12,11 +12,11 @@ But there is a solution! Maybe C doesn't have type-genericity and templates out 
 
 ## How does it work?
 
-The type-agnostic logic written in the `storage.c` file is super simple in this case. We have a struct which holds a void pointer to dynamically allocated memory and it's size in bytes. And a set of functions to create, write, read and destroy said memory. And since the whole thing is type-agnostic, so are the functions.
+The type-agnostic logic written in the `storage.c` file is super simple in this case. We have a struct which holds a void pointer to dynamically allocated memory and it's size in bytes. And a set of functions to create, write, read and destroy said memory. And since the whole thing is type-agnostic, so are the functions and their arguments.
 
 But here comes the C preprocessor.
 
-As you may see in the `storage.h` file, we first specify the function primitives of the type-agnostic functions mentioned above. And then comes the preprocessor magic. You can see there is a macro `define_storage_of_type(type)`. Inside the macro there are the type-generic wrappers. 
+As you may see in the `storage.h` file, we first specify the function primitives of the type-agnostic functions mentioned above in order to be able to use them. And then comes the preprocessor magic. You can see there is a macro `define_storage_of_type(type)`. Inside the macro there are the type-generic wrappers. 
 
 The macro first specifies a typedef of the base `storage_t` by prepending the type to it using `##`, which is the way how text is appended, prepended or otherwise joined with other text in the preprocessor.
 
