@@ -21,8 +21,7 @@ int storage_destroy(storage_t storage);
 	} \
 	\
 	type type##_storage_get(type##_storage_t storage) { \
-		type * out = storage_get((storage_t) storage); \
-		return *out; \
+		return *(type *)storage_get((storage_t) storage); \
 	} \
 	\
 	int type##_storage_destroy(type##_storage_t storage) { \
