@@ -1,8 +1,8 @@
 #include "storage.h"
 #include <stdio.h>
 
-define_storage_of_type(int)
-define_storage_of_type(float)
+use_storage_of_type(int)
+use_storage_of_type(float)
 
 int main() {
 	int_storage_t is = int_storage_new();

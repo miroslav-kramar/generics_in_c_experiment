@@ -19,18 +19,18 @@ storage_t storage_new(const size_t size) {
 	return tmp;
 }
 
-int storage_insert(storage_t storage, void * data) {
+int storage_insert(const storage_t storage, void * data) {
 	if (storage == NULL || data == NULL) return 0;
 	memcpy(storage->storage, data, storage->size);
 	return 1;
 }
 
-void * storage_get(storage_t storage) {
+void * storage_get(const storage_t storage) {
 	if (storage == NULL) return NULL;
 	return storage->storage;
 }
 
-int storage_destroy(storage_t storage) {
+int storage_destroy(const storage_t storage) {
 	if (storage == NULL) return 0;
 	if (storage->storage != NULL) free(storage->storage);
 	free(storage);
